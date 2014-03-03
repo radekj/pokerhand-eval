@@ -1,8 +1,8 @@
 import unittest
 try:
-    from test import test_support 
+    import test.support as test_support
 except ImportError:
-    from test import support as test_support
+    from test import test_support 
 
 from pokereval.card import Card
 from pokereval.hand_evaluator import HandEvaluator
