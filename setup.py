@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
-from distutils.core import setup
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
+
 
 setup(
     name='pokereval',
-    version='0.1.0',
-    author=u'Alvin Liang, Zach Wissner-Gross, arlsr, Jim Kelly',
+    version='0.2.0',
+    author=u'Alvin Liang, Zach Wissner-Gross, arlsr, Jim Kelly, Radek Jankiewicz',
     author_email='ayliang@gmail.com',
     packages=['pokereval'],
     url='https://github.com/aliang/pokerhand-eval',

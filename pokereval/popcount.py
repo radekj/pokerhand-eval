@@ -1,3 +1,8 @@
+try:
+    xrange
+except NameError:
+    xrange = range
+
 class PopCount:
     # Generate table of popcounts for 16 bits
     # Then just use it twice.

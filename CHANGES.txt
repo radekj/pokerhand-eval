@@ -1,6 +1,13 @@
 Changes
 =======
 
+0.2.0 (2014-03-03)
+------------------
+
+- Python 3.3 support (Radek Jankiewicz)
+- Basic tests added (Radek Jankiewicz)
+
+
 0.1.0 (2014-01-09)
 ------------------
 

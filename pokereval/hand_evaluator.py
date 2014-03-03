@@ -1,7 +1,9 @@
-from lookup_tables import LookupTables
-from popcount import PopCount
+from functools import reduce
 from itertools import combinations
 from operator import mul, __or__, __and__, __xor__
+
+from pokereval.lookup_tables import LookupTables
+from pokereval.popcount import PopCount
 
 class HandLengthException(Exception):
     pass
@@ -69,7 +71,7 @@ class HandEvaluator:
             card_to_binary = HandEvaluator.Five.card_to_binary_lookup
 
             # bh stands for binary hand
-            bh = map(card_to_binary, hand)
+            bh = [i for i in map(card_to_binary, hand)]
             has_flush = reduce(__and__, bh, 0xF000)
             # This is a unique number based on the ranks if your cards,
             # assuming your cards are all different
@@ -137,7 +139,7 @@ class HandEvaluator:
             
             # bh stands for binary hand, map to that representation
             card_to_binary = HandEvaluator.Six.card_to_binary_lookup
-            bh = map(card_to_binary, hand)
+            bh = [i for i in map(card_to_binary, hand)]
         
             # We can determine if it's a flush using a lookup table.
             # Basically use prime number trick but map to bool instead of rank
@@ -250,7 +252,7 @@ class HandEvaluator:
             
             # bh stands for binary hand, map to that representation
             card_to_binary = HandEvaluator.Seven.card_to_binary_lookup
-            bh = map(card_to_binary, hand)
+            bh = [i for i in map(card_to_binary, hand)]
         
             # Use a lookup table to determine if it's a flush as with 6 cards
             flush_prime = reduce(mul, map(lambda card: (card >> 12) & 0xF, bh))

@@ -1,4 +1,4 @@
-from card import Card
+from pokereval.card import Card
 
 class LookupTables:
     """
